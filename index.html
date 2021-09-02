@@ -9,6 +9,16 @@
     <!-- bootstrap css  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        #no-book-found,
+        #book-found {
+            display: none;
+        }
+
+        .card-img-top {
+            max-height: 250px;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,9 +30,8 @@
             <div class="w-50 mx-auto text-center mt-5">
                 <h2 class="text-success mb-3">Search your favorite book</h2>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                    <input id="input-book-name" type="text" class="form-control" placeholder="Write Your Favorite Book">
+                    <button onclick="loadBooks()" class="btn btn-outline-secondary" type="button">Search</button>
                 </div>
             </div>
         </section>
@@ -34,40 +43,13 @@
             </div>
             <!-- book found  -->
             <div id="book-found" class="w-75 mx-auto bg-success text-center p-2 text-white mb-3">
-                <h3>120 result found</h3>
             </div>
         </section>
         <!-- show books  -->
         <section>
             <div class="container mt-5">
                 <div id="show-books" class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Book Name: </th>
-                                            <td>Mark</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Author: </th>
-                                            <td>Mark</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Publisher: </th>
-                                            <td>Mark</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Published Year: </th>
-                                            <td>Mark</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
