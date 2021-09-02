@@ -2,12 +2,18 @@
 const loadBooks = () => {
     const bookName = document.getElementById('input-book-name').value;
     document.getElementById('input-book-name').value = '';
-    console.log(bookName);
     const url = `https://openlibrary.org/search.json?q=${bookName}`;
     fetch(url)
         .then(res => res.json())
         .then(data => showBooks(data));
+    spinner('block');
 };
+// spinner
+const spinner = displayValue => {
+    document.getElementById('spinner').style.display = displayValue;
+    bookFound('none', 0);
+    noBookFound('none');
+}
 
 // no book found
 const noBookFound = displayValue => {
@@ -23,14 +29,14 @@ const bookFound = (displayValue, totalBooksFound) => {
 
 // show books result
 const showBooks = books => {
-    console.log(books);
-
     if (books.numFound === 0) {
         // if book not found
+        spinner('none');
         noBookFound('block');
         bookFound('none', 0)
     }
     else {
+        spinner('none');
         // total book found
         const totalBooksFound = books.numFound;
         bookFound('block', totalBooksFound)

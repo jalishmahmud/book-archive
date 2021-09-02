@@ -9,9 +9,11 @@
     <!-- bootstrap css  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- custom style  -->
     <style>
         #no-book-found,
-        #book-found {
+        #book-found,
+        #spinner {
             display: none;
         }
 
@@ -22,13 +24,11 @@
 </head>
 
 <body>
-
-
     <main>
         <!-- search books -->
         <section>
             <div class="w-50 mx-auto text-center mt-5">
-                <h2 class="text-success mb-3">Search your favorite book</h2>
+                <h2 class="text-info mb-3">Search your favorite book</h2>
                 <div class="input-group mb-3">
                     <input id="input-book-name" type="text" class="form-control" placeholder="Write Your Favorite Book">
                     <button onclick="loadBooks()" class="btn btn-outline-secondary" type="button">Search</button>
@@ -37,15 +37,21 @@
         </section>
         <!-- validity check -->
         <section>
+            <!-- spinner  -->
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <div id="spinner" class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <!-- no book found  -->
             <div id="no-book-found" class="w-75 mx-auto bg-danger text-center p-2 text-white mb-3">
                 <h3>Please enter valid book name!</h3>
             </div>
             <!-- book found  -->
-            <div id="book-found" class="w-75 mx-auto bg-success text-center p-2 text-white mb-3">
+            <div id="book-found" class="w-75 mx-auto bg-info text-center p-2 text-white mb-3">
             </div>
         </section>
-        <!-- show books  -->
+        <!-- show books result -->
         <section>
             <div class="container mt-5">
                 <div id="show-books" class="row row-cols-1 row-cols-md-3 g-4">
